@@ -10,7 +10,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist/client'),
-    publicPath: '/',
+    publicPath: 'auto',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
@@ -33,10 +33,9 @@ module.exports = {
       template: './src/client/index.html'
     }),
     new ModuleFederationPlugin({
-      name: 'client',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './App': './src/client/components/app'
+      name: 'host',
+      remotes: {
+        'testremote': 'client_test_remote@http://localhost:8000/mf-manifest.json'
       },
       shared: {
         'react': {

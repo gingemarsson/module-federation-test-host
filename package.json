@@ -1,5 +1,5 @@
 {
-  "name": "module-federation-test-remote",
+  "name": "module-federation-test-host",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
